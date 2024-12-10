@@ -25,11 +25,57 @@
     <section>
       <h2>View My Database</h2>
       <p>
-        I have my database available for download. Click the button below to view my database file in Excel.
+        Click the button below to view my database file in Excel format or see the database directly on this page.
       </p>
       <a href="/assets/exported_data.csv" download="exported_data.csv">
         <button>Download My Database</button>
       </a>
+      <button id="show-database-button">Show Database</button>
+      <div id="database-container" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>Checkout</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Boulder</td>
+              <td>Adania Shibli</td>
+              <td>0</td>
+              <td>3.5</td>
+            </tr>
+            <tr>
+              <td>Whale</td>
+              <td>Ahmed Saadawi</td>
+              <td>1</td>
+              <td>4.0</td>
+            </tr>
+            <tr>
+              <td>The Gospel According to the New World</td>
+              <td>Alia Trabucco Zerán</td>
+              <td>0</td>
+              <td>2.8</td>
+            </tr>
+            <tr>
+              <td>Standing Heavy</td>
+              <td>Amanda Svensson</td>
+              <td>1</td>
+              <td>4.5</td>
+            </tr>
+            <tr>
+              <td>Time Shelter</td>
+              <td>Andrey Kurkov</td>
+              <td>0</td>
+              <td>3.7</td>
+            </tr>
+            <!-- Add more rows here -->
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section>
@@ -44,6 +90,8 @@
   <footer>
     <p>&copy; 2024 Donovan Faucette. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
