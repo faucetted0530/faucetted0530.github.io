@@ -5,113 +5,76 @@
   box-sizing: border-box;
 }
 
-/* Body Styles */
+/* Body Styling */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #333;
   background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
 }
 
-/* Header Section */
+/* Header Styling */
 header {
   text-align: center;
-  padding: 20px 0;
-  background: #333;
-  color: #fff;
-}
-
-header h1 {
-  margin-bottom: 10px;
-}
-
-header p {
   margin-bottom: 20px;
 }
 
-/* Navigation Button (Back to Home) */
-nav .blog-button {
-  display: inline-block;
+header button,
+section a button {
   padding: 10px 20px;
-  background-color: #007bff; /* Blue */
+  background-color: #007bff;
   color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-nav .blog-button:hover {
-  background-color: #0056b3; /* Darker blue */
-}
-
-/* Main Content */
-main {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-section {
-  margin: 20px 0;
-}
-
-section h2 {
-  margin-bottom: 10px;
-}
-
-/* Articles */
-article {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-article:last-of-type {
-  border-bottom: none;
-}
-
-article h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-article p {
-  margin-bottom: 10px;
-  line-height: 1.8;
-}
-
-article time {
-  display: block;
-  font-size: 14px;
-  color: #555;
-  font-style: italic;
-}
-
-/* Button */
-button {
-  background-color: #555;
-  color: #fff;
-  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  text-decoration: none;
+  font-size: 16px;
 }
 
-button:hover {
-  background-color: #777;
+header button:hover,
+section a button:hover {
+  background-color: #0056b3;
 }
 
-/* Footer */
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+thead th {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Footer Styling */
 footer {
   text-align: center;
-  padding: 10px 0;
   margin-top: 20px;
-  background-color: #333;
-  color: #fff;
   font-size: 14px;
 }
