@@ -25,6 +25,26 @@ header h1 {
   margin-bottom: 10px;
 }
 
+header p {
+  margin-bottom: 20px;
+}
+
+/* Navigation Button (Back to Home) */
+nav .blog-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+nav .blog-button:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
 /* Main Content */
 main {
   padding: 20px;
@@ -43,6 +63,34 @@ section h2 {
   margin-bottom: 10px;
 }
 
+/* Articles */
+article {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+article:last-of-type {
+  border-bottom: none;
+}
+
+article h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+article p {
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+article time {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+}
+
 /* Button */
 button {
   background-color: #555;
@@ -58,23 +106,6 @@ button:hover {
   background-color: #777;
 }
 
-/* Blog Button */
-.blog-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #28a745; /* Green */
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.blog-button:hover {
-  background-color: #218838; /* Darker green */
-}
-
 /* Footer */
 footer {
   text-align: center;
@@ -84,4 +115,3 @@ footer {
   color: #fff;
   font-size: 14px;
 }
-
