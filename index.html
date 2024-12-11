@@ -26,7 +26,7 @@
       <h2>Book Search</h2>
       <p>Use the search bar below to find books by their title.</p>
       <input type="text" id="search-input" placeholder="Enter book title" />
-      <button id="search-button">Search</button>
+<a id="search-button" href="javascript:void(0)">Search</a>
       <div id="search-results" style="display: none;">
         <h3>Search Results</h3>
         <table>
@@ -129,17 +129,17 @@
 
   <script>
     // Search functionality
-    document.getElementById('search-button').addEventListener('click', () => {
-      const searchInput = document.getElementById('search-input').value.trim();
-      const resultsBody = document.getElementById('results-body');
-      const resultsSection = document.getElementById('search-results');
-
-      resultsBody.innerHTML = ''; // Clear previous results
-
-      if (!searchInput) {
-        alert('Please enter a book title to search.');
-        return;
-      }
+   <script>
+  document.getElementById('search-button').addEventListener('click', () => {
+    const searchInput = document.getElementById('search-input').value.trim();
+    if (!searchInput) {
+      alert('Please enter a book title to search.');
+      return;
+    }
+    // Redirect to search-results.html with the book title as a query parameter
+    window.location.href = `search-results.html?title=${encodeURIComponent(searchInput)}`;
+  });
+</script>
 
       fetch(`/search?title=${encodeURIComponent(searchInput)}`)
         .then(response => response.json())
