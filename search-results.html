@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Search Results</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Book Details</h2>
+      <div id="book-details-container">
+        <p>Loading book details...</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Donovan Faucette. All rights reserved.</p>
+  </footer>
+  <script>
+    // Extract the book title from the query parameter
+    const params = new URLSearchParams(window.location.search);
+    const bookTitle = params.get('title');
+
+    // Fetch book details from the backend using the book title
+    fetch(`/search?title=${encodeURIComponent(bookTitle)}`)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('book-details-container');
+        if (data.length > 0) {
+          container.innerHTML = `
+            <table>
+              <thead>
+                <tr>
+                  <th>Book Title</th>
+                  <th>Author</th>
+                  <th>Checkout</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${data.map(book => `
+                  <tr>
+                    <td>${book.book_title}</td>
+                    <td>${book.book_authors}</td>
+                    <td>${book.book_checkout ? 'Checked Out' : 'Available'}</td>
+                    <td>${book.rating}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          `;
+        } else {
+          container.innerHTML = '<p>No books found with the given title.</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching book details:', error);
+        document.getElementById('book-details-container').innerHTML = '<p>Error loading book details. Please try again later.</p>';
+      });
+  </script>
+</body>
+</html>
 
