@@ -127,43 +127,15 @@
     <p>&copy; 2024 Donovan Faucette. All rights reserved.</p>
   </footer>
 
-  <script>
     // Search functionality
-   <script>
-  document.getElementById('search-button').addEventListener('click', () => {
-    const searchInput = document.getElementById('search-input').value.trim();
-    if (!searchInput) {
-      alert('Please enter a book title to search.');
-      return;
-    }
-    // Redirect to search-results.html with the book title as a query parameter
-    window.location.href = `search-results.html?title=${encodeURIComponent(searchInput)}`;
-  });
-</script>
-
-      fetch(`/search?title=${encodeURIComponent(searchInput)}`)
-        .then(response => response.json())
-        .then(data => {
-          if (data.length > 0) {
-            resultsSection.style.display = 'block';
-            data.forEach(book => {
-              const row = document.createElement('tr');
-              row.innerHTML = `
-                <td>${book.book_title}</td>
-                <td>${book.book_authors}</td>
-                <td>${book.book_checkout ? 'Checked Out' : 'Available'}</td>
-                <td>${book.rating}</td>
-              `;
-              resultsBody.appendChild(row);
-            });
-          } else {
-            resultsSection.style.display = 'block';
-            resultsBody.innerHTML = '<tr><td colspan="4">No books found.</td></tr>';
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching search results:', error);
-        });
+    document.getElementById('search-button').addEventListener('click', () => {
+      const searchInput = document.getElementById('search-input').value.trim();
+      if (!searchInput) {
+        alert('Please enter a book title to search.');
+        return;
+      }
+      // Redirect to search-results.html with the book title as a query parameter
+      window.location.href = `search-results.html?title=${encodeURIComponent(searchInput)}`;
     });
   </script>
 </body>
