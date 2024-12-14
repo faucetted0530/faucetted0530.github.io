@@ -27,6 +27,16 @@
       <p>Use the search bar below to find books by their title.</p>
       <input type="text" id="search-input" placeholder="Enter book title" />
 <a id="search-button" href="javascript:void(0)">Search</a>
+      <script>
+  document.getElementById('search-button').addEventListener('click', () => {
+    const searchInput = document.getElementById('search-input').value.trim();
+    if (searchInput) {
+      window.location.href = `search_results.html?title=${encodeURIComponent(searchInput)}`;
+    } else {
+      alert('Please enter a book title to search!');
+    }
+  });
+</script>
       <div id="search-results" style="display: none;">
         <h3>Search Results</h3>
         <table>
