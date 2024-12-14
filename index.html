@@ -127,16 +127,6 @@
     <p>&copy; 2024 Donovan Faucette. All rights reserved.</p>
   </footer>
 
-    // Search functionality
-    document.getElementById('search-button').addEventListener('click', () => {
-      const searchInput = document.getElementById('search-input').value.trim();
-      if (!searchInput) {
-        alert('Please enter a book title to search.');
-        return;
-      }
-      // Redirect to search-results.html with the book title as a query parameter
-      window.location.href = `search-results.html?title=${encodeURIComponent(searchInput)}`;
-    });
   </script>
 </body>
 
