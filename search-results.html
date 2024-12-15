@@ -1,15 +1,26 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 <script>
   // Extract the book title from the query parameter
   const params = new URLSearchParams(window.location.search);
   const bookTitle = params.get('title');
 
+  const csvUrl = 'https://faucetted0530.github.io/assets/exported_data.csv'; // Your hosted CSV file
+
   if (bookTitle) {
-    // Fetch book details from the backend using the book title
-    fetch(`/search?title=${encodeURIComponent(bookTitle)}`)
-      .then(response => response.json())
-      .then(data => {
+    fetch(csvUrl)
+      .then(response => response.text())
+      .then(csvText => {
+        // Parse the CSV file
+        const data = Papa.parse(csvText, { header: true }).data;
+
+        // Filter books by the search term
+        const filteredBooks = data.filter(book => 
+          book['book_title'] && book['book_title'].toLowerCase().includes(bookTitle.toLowerCase())
+        );
+
         const container = document.getElementById('book-details-container');
-        if (data.length > 0) {
+        if (filteredBooks.length > 0) {
+          // Display results in a table
           container.innerHTML = `
             <table>
               <thead>
@@ -21,12 +32,12 @@
                 </tr>
               </thead>
               <tbody>
-                ${data.map(book => `
+                ${filteredBooks.map(book => `
                   <tr>
                     <td>${book.book_title}</td>
                     <td>${book.book_authors}</td>
-                    <td>${book.book_checkout ? 'Checked Out' : 'Available'}</td>
-                    <td>${book.rating}</td>
+                    <td>${book.book_checkout === 'true' ? 'Checked Out' : 'Available'}</td>
+                    <td>${book.rating || 'N/A'}</td>
                   </tr>
                 `).join('')}
               </tbody>
